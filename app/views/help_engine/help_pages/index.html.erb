@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Help Pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Slug</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @help_pages.each do |help_page| %>
+      <tr>
+        <td><%= help_page.name %></td>
+        <td><%= help_page.slug %></td>
+        <td><%= help_page.content %></td>
+        <td><%= link_to 'Show', help_page %></td>
+        <td><%= link_to 'Edit', edit_help_page_path(help_page) %></td>
+        <td><%= link_to 'Destroy', help_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Help page', new_help_page_path %>

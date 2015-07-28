@@ -1,0 +1,20 @@
+one:
+  name: One
+  slug: one
+  content: |
+    One
+    =======
+    A name of the smallest postive integer.
+
+    It is the first in an infinite sequence of numbers
+
+two:
+  name: Two
+  slug: two
+  content: |
+    Two
+    =======
+    The name of the second smallest positive integer.
+
+    Also the minimum number of participants in the exchange of
+    sexually transmitted diseases.
