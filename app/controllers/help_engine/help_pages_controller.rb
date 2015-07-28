@@ -51,7 +51,7 @@ module HelpEngine
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_help_page
-        @help_page = HelpPage.find(params[:id])
+        @help_page = HelpPage.friendly.find(params[:id])
       end
 
       # Only allow a trusted parameter "white list" through.

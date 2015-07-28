@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails"
   s.add_dependency 'github-markdown' # Parse markdown into HTML
+  s.add_dependency 'friendly_id', '~> 5.0.0'  # Simplifies using name instead of id in routes
 
   s.add_development_dependency "sqlite3"
 end
