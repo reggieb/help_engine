@@ -26,4 +26,8 @@ class ActiveSupport::TestCase
     @help_page ||= help_engine_help_pages(:one)
   end
 
+  def user
+    @user ||= users(:one)
+  end
+
 end

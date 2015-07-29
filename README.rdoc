@@ -1,8 +1,27 @@
 = Help Engine
 
+== Author
+
+Each help_page has an author polymorphic relationship. So an user can be 
+associated to a help_page with:
+
+    help_page.author = user
+
+A has_many method can be added to an author class such as User, like this:
+
+  class User < ActiveRecord::Base
+
+    has_many :help_pages, as: :author, class_name: 'HelpEngine::HelpPage'
+
+    ...
+  end
+
+To store an author's identity on help page creation, the help pages controller
+will need to be overwritten.
 
 == Overriding Help Engine behaviour
 
+=== Overriding controllers
 As with most rails engines, you can override the Help Engine behaviour by adding
 matching objects in the host app. So for example, if you want to override how
 the HelpEngine::HelpPagesController behaves (to add access control for example),
@@ -10,6 +29,27 @@ add your own controller code at the host app's:
 
     app/controllers/help_engine/help_pages_controller.rb
 
+For example, if Devise is installed, you may do something like this (at
+app/controllers/help_engine/help_pages_controller):
+
+    class HelpEngine::HelpPagesController < ApplicationController
+
+      before_action :authenticate_user!, except: [:index, :show]
+
+      def create
+        @help_page = HelpPage.new(help_page_params)
+        @help_page.author = current_user
+
+        if @help_page.save
+          redirect_to @help_page, notice: 'Help page was successfully created.'
+        else
+          render :new
+        end
+      end
+
+    end
+
+=== Overriding views
 HelpEngine views can be overridden in the same way. For example, in the dummy
 app the help_engine layout has been overridden so that bootstrap styling can be
 applied to the help pages. see:

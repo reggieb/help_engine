@@ -6,10 +6,12 @@ module HelpEngine
     extend FriendlyId
     friendly_id :name, use: :slugged
 
+    belongs_to :author, polymorphic: true
+
     validates :name, :content, presence: true
 
     def to_html
-      markdown.render(content)
+      markdown.render content
     end
 
     def self.markdown_parser

@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728142457) do
+ActiveRecord::Schema.define(version: 20150729103806) do
 
   create_table "help_engine_help_pages", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+  end
+
+  add_index "help_engine_help_pages", ["author_type", "author_id"], name: "index_help_engine_help_pages_on_author_type_and_author_id"
+  add_index "help_engine_help_pages", ["slug"], name: "index_help_engine_help_pages_on_slug"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
