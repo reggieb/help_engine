@@ -17,9 +17,12 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails"
+  s.add_dependency 'rails'
   s.add_dependency 'github-markdown' # Parse markdown into HTML
   s.add_dependency 'friendly_id', '~> 5.0.0'  # Simplifies using name instead of id in routes
+  s.add_dependency 'jquery-rails'
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'therubyracer'
+
 end

@@ -110,3 +110,20 @@ This change has also modified where the CSS for these pages reside. For example,
 the textarea styling for the help_page content in the dummy app is defined at:
 
     test/dummy/assets/stylesheets/help_pages.css
+
+== Deletion and JavaScript
+
+For the help page delete button to work, the JavaScript environment must be
+correctly set up in the host application. In the dummy app this is done by
+using the 'jquery-rails' gem and enabling jquery in the asset pipeline by
+adding these two lines to app/asserts/javascripts/application.js :
+
+    //= require jquery
+    //= require jquery_ujs
+
+This could be fixed by setting up jquery in the engine, but having had
+problems in the past with rails engines' jquery configuration clashing
+with the host app's jquery configuration, I don't think this is best
+practice. For those interested:
+
+  http://stackoverflow.com/questions/8788304/activeadmin-stops-my-jquery-working
