@@ -1,0 +1,20 @@
+
+.help_pages {
+  margin-top: 1em;
+}
+
+.help_page textarea {
+  height: 10em;
+}
+
+.help_page input[type=text], .help_page textarea {
+  width: 80%;
+}
+
+.help_page label {
+  margin: 0.5em 0 0;
+}
+
+.btn {
+  margin: 0.5em 0.1em;
+}

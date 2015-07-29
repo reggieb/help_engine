@@ -1,3 +1,22 @@
-= HelpEngine
+= Help Engine
 
-This project rocks and uses MIT-LICENSE.
+
+== Overriding Help Engine behaviour
+
+As with most rails engines, you can override the Help Engine behaviour by adding
+matching objects in the host app. So for example, if you want to override how
+the HelpEngine::HelpPagesController behaves (to add access control for example),
+add your own controller code at the host app's:
+
+    app/controllers/help_engine/help_pages_controller.rb
+
+HelpEngine views can be overridden in the same way. For example, in the dummy
+app the help_engine layout has been overridden so that bootstrap styling can be
+applied to the help pages. see:
+
+    test/dummy/app/views/layouts/help_engine/application.html.erb
+
+This change has also modified where the CSS for these pages reside. For example,
+the textarea styling for the help_page content in the dummy app is defined at:
+
+    test/dummy/assets/stylesheets/help_pages.css

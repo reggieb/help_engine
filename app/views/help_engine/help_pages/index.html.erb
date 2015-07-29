@@ -1,20 +1,21 @@
 <h1>Help Pages</h1>
 
-<%= link_to 'New Help page', new_help_page_path %>
+<%= link_to 'New Help page', new_help_page_path, class: 'btn btn-primary' %>
 
-<% if @help_pages.present? %>
+<section class="help_pages">
+  <% if @help_pages.present? %>
 
-<ul>
-  <% @help_pages.each do |help_page| %>
-        <li><%= link_to help_page.name, help_page %></li>
+  <ul>
+    <% @help_pages.each do |help_page| %>
+          <li><%= link_to help_page.name, help_page %></li>
+    <% end %>
+    </tbody>
+  </table>
+
+  <% else %>
+
+  <h2>No help pages</h2>
+  <p>The first help page is yet to be added</p>
+
   <% end %>
-  </tbody>
-</table>
-
-<% else %>
-
-<h2>No help pages</h2>
-<p>The first help page is yet to be added</p>
-
-<% end %>
-
+</section>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HelpEngine</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+</head>
+<body>
+  <div class="help_engine container">
+    <header>
+      <h1>Help System</h1>
+    </header>
+    <%= yield %>
+  </div>
+</body>
+</html>
