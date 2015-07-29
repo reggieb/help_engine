@@ -15,6 +15,16 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <p>
+    The name is used to describe the page in the help page index, and to generate
+    the string used to give the page an unique url (the "slug").
+    <% if @help_page.persisted? %>
+      The slug for this page is <em><%= @help_page.slug %></em>.
+    <% else %>
+      That is, creating a page named "Foo bar" will create the slug "foo-bar" and
+      the url for the help page will end: /foo-bar.
+    <% end %>
+  </p>
 
   <div class="field">
     <%= f.label :content %><br>
@@ -23,7 +33,8 @@
 
   <p>
     Content should be entered using Markdown. The Markdown syntax is described
-    <%= link_to 'here', 'http://daringfireball.net/projects/markdown/basics', target: '_blank' %>
+    <%= link_to 'here', 'http://daringfireball.net/projects/markdown/basics', target: '_blank' %>.
+    This content will form the main output when displaying the help page.
   </p>
 
   <div class="actions">
