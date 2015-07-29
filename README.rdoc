@@ -1,5 +1,55 @@
 = Help Engine
 
+A basic system to add help pages to a Rails application.
+
+I often find myself tacking a simple help system on to rails apps. They
+are usually very simple, and allow users to add and modify the content. As
+I do it so often, I thought I'd bundle it all into a gem so that I can make
+the process even simpler.
+
+== Installation
+
+First add the gem to the host app's Gemfile:
+
+  gem 'help_engine'
+
+Then mount the engine via config/routes.rb:
+
+    mount HelpEngine::Engine => "help"
+
+== Usage
+
+Each help page has a unique slug that is used to generate unique meaningful
+urls. So if a help page is named "Foo Bar", it will have a slug 'foo-bar' and
+the page's url will be help/pages/foo-bar.
+
+To add a link to a particular help page, use the slug to identify the page:
+
+    <%= link_to 'help on Foo Bar', help_engine.help_page_path('foo-bar') %>
+
+To add a link to the help index:
+
+    <%= link_to 'Help', help_engine.root_path %>
+
+On this page links are provided to each of the existing help pages, and there
+is also a link to create a new help page. See the Overriding Help Engine
+behaviour section below regarding added access control to help pages.
+
+== Content
+
+Markdown is used to define the content of help pages. The mark down used is
+as defined here:
+
+  http://daringfireball.net/projects/markdown/basics
+
+Markdown is used as it's easy to create well styled content without having to
+sanitise users' input.
+
+== Dummy app
+
+A dummy app is provided as part of this engine (test/dummy). This provides
+an example of how the engine can be used.
+
 == Author
 
 Each help_page has an author polymorphic relationship. So an user can be 
