@@ -1,0 +1,12 @@
+<h1>Help Engine Dummy App</h1>
+
+<p>
+  <%= link_to 'Help page root', help_engine.help_pages_path %>
+</p>
+
+<% if HelpEngine::HelpPage.exists? %>
+<h2>The first help page</h2>
+<p>
+  <%= link_to HelpEngine::HelpPage.first.name, help_engine.help_page_path(HelpEngine::HelpPage.first.slug) %>
+</p>
+<% end %>
